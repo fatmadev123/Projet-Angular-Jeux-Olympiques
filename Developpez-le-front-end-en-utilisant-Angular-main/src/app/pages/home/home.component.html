@@ -2,8 +2,10 @@
 <hr />
 
 <label class="label1">Medals per Country</label><br />
-<label class="label2">Number of JOs</label>
-<label class="label3">Numbers of countries</label>
+<label class="label2">Number of JOs : {{ olympicsNumberOfJOs$ | async }}</label>
+<label class="label3"
+  >Numbers of countries : {{ olympicsNumberOfCountries$ | async }}</label
+>
 
 <div id="chart">
   <apx-chart

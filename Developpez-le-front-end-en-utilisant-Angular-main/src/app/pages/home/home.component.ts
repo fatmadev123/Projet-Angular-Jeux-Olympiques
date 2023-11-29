@@ -25,10 +25,17 @@ export type ChartOptions = {
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  public olympicsNumberOfCountries$!: Observable<Olympics[]> | any;
+  public olympicsNumberOfJOs$!: Observable<Olympics[]> | any;
   public olympics$: Observable<any>;
   @ViewChild('chart') chart!: ChartComponent;
   public chartOptions!: Observable<ChartOptions>;
   constructor(private olympicService: OlympicService, private router: Router) {
+    var indexParticipation!: number;
+    indexParticipation = 0;
+    var indexCountries!: number;
+    indexCountries = 0;
+
     this.olympics$ = this.olympicService.getOlympics();
     this.chartOptions = this.olympics$.pipe(
       filter((olympics) => olympics),
@@ -82,6 +89,36 @@ export class HomeComponent implements OnInit {
         return newchartOptions;
       })
     );
+
+    //////observable of nbre of JOs
+
+    this.olympicsNumberOfJOs$ = this.olympicService.getOlympics().pipe(
+      filter((olympics) => olympics),
+
+      map((olympics: Olympics[]) => {
+        for (let elementCountry of olympics) {
+          for (let x of elementCountry.participations) {
+            indexParticipation = indexParticipation + 1;
+          }
+        }
+        return indexParticipation;
+      })
+    );
+
+    /////observale pour nbre total des countries
+
+    this.olympicsNumberOfCountries$ = this.olympicService.getOlympics().pipe(
+      filter((olympics) => olympics),
+
+      map((olympics: Olympics[]) => {
+        for (let elementCountry of olympics) {
+          indexCountries = indexCountries + 1;
+        }
+        return indexCountries;
+      })
+    );
+
+    ///////////////////////
   }
   ngOnInit(): void {
     this.olympics$ = this.olympicService.getOlympics();
