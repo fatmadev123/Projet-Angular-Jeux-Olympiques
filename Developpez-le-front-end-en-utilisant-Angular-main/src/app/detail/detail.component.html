@@ -1,0 +1,25 @@
+<label class="label1">Name of the Country : {{ country }}</label
+><br />
+<div class="lbelcommun">
+  <label class="label2"
+    >Number of entries : {{ olympicsentriesCount$ | async }}</label
+  >
+  <label class="label3"
+    >Total number Medals : {{ olympicsMedalsCount$ | async }}</label
+  >
+  <label class="label4"
+    >Total number of athletes : {{ olympicsAthletesCount$ | async }}</label
+  >
+</div>
+
+<div id="chart" *ngIf="olympics$ | async as chartOptions">
+  <apx-chart
+    [series]="chartOptions.series!"
+    [chart]="chartOptions.chart!"
+    [xaxis]="chartOptions.xaxis!"
+    [dataLabels]="chartOptions.dataLabels!"
+    [grid]="chartOptions.grid!"
+    [stroke]="chartOptions.stroke!"
+    [title]="chartOptions.title!"
+  ></apx-chart>
+</div>

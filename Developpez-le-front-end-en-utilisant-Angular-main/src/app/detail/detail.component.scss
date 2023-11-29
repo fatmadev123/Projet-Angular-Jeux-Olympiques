@@ -1,0 +1,49 @@
+#chart {
+  max-width: 650px;
+  margin: 35px auto;
+}
+.label1 {
+  background-color: rgb(43, 98, 100);
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 230px;
+  height: 50px;
+  border: 2px solid rgb(35, 140, 158);
+  border-radius: 5px;
+  font: size 50px;
+  flex-wrap: nowrap;
+}
+.label2,
+.label3,
+.label4 {
+  background-color: rgb(244, 246, 247);
+  color: rgb(103, 94, 94);
+  margin-left: 50px;
+  margin-right: auto;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  width: 230px;
+  height: 50px;
+  border: 2px solid rgb(12, 96, 117);
+  border-radius: 5px;
+  font: size 50px;
+  flex-wrap: nowrap;
+  text-align: center;
+
+  // gap: 10px;
+  //gap: 10px 20px; /* row-gap column gap */
+  //row-gap: 10px;
+  //column-gap: 20px;
+}
+.lbelcommun {
+  margin: 0 auto;
+  width: 60%;
+  position: center;
+  align-items: center;
+  justify-content: center;
+}

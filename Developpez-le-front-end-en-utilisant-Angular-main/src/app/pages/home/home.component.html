@@ -1,0 +1,19 @@
+<h2>Olympic games app</h2>
+<hr />
+
+<label class="label1">Medals per Country</label><br />
+<label class="label2">Number of JOs</label>
+<label class="label3">Numbers of countries</label>
+
+<div id="chart">
+  <apx-chart
+    *ngIf="chartOptions | async as chart"
+    [series]="chart.series"
+    [chart]="chart.chart"
+    [labels]="chart.labels"
+    [responsive]="chart.responsive!"
+    [routerLink]="['/detail']"
+    routerLinkActive="active"
+  >
+  </apx-chart>
+</div>
