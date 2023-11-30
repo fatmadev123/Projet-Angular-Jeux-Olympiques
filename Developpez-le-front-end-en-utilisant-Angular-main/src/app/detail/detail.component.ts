@@ -32,8 +32,8 @@ export type ChartOptions = {
 })
 export class DetailComponent implements OnInit {
   public olympicsdetailcountry$!: Observable<Olympics[]> | any;
-  public olympii!: Olympics[];
-  public olympi!: Observable<Olympics[]> | any;
+
+  public olympiccountry$!: Observable<Olympics[]> | any;
   olympics$!: Observable<ChartOptions>;
   olympicsMedalsCount$!: Observable<number>;
   olympicsAthletesCount$!: Observable<number>;
@@ -42,7 +42,6 @@ export class DetailComponent implements OnInit {
   country!: string;
   constructor(
     private route: ActivatedRoute,
-    private olympicsService: OlympicService,
     private olympicService: OlympicService
   ) {
     var index!: number;
@@ -54,7 +53,7 @@ export class DetailComponent implements OnInit {
       console.log('Query param country : ', this.country);
     });
 
-    this.olympi = this.olympicService
+    this.olympiccountry$ = this.olympicService
       .getOlympics()
       .pipe(
         filter((olympics) => olympics),
@@ -64,11 +63,9 @@ export class DetailComponent implements OnInit {
             console.log(
               'elementCountry.country : ' + elementCountry.country.trim()
             );
-            console.log('this.country : ' + this.country.trim());
 
             if (elementCountry.country.trim() !== this.country.trim()) {
               index = index + 1;
-              console.log('index dans le boucle : ' + index);
             } else {
               break;
             }
@@ -152,10 +149,5 @@ export class DetailComponent implements OnInit {
       map((olympics: Olympics[]) => olympics[index].participations.length)
     );
   }
-  ngOnInit(): void {
-    this.route.queryParams.subscribe((params) => {
-      this.country = params['country'];
-      console.log('Query param country : ', this.country);
-    });
-  }
+  ngOnInit(): void {}
 }

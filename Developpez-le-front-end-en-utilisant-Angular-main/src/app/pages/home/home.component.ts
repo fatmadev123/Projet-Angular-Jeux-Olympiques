@@ -5,20 +5,17 @@ import { ChartComponent } from 'ng-apexcharts';
 import { Olympics } from 'src/app/core/models/Olympic';
 import { Participation } from 'src/app/core/models/Participation';
 import { Router } from '@angular/router';
-
 import {
   ApexNonAxisChartSeries,
   ApexResponsive,
   ApexChart,
 } from 'ng-apexcharts';
-
 export type ChartOptions = {
   series: ApexNonAxisChartSeries;
   chart: ApexChart;
   responsive: ApexResponsive[];
   labels: any;
 };
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -51,11 +48,6 @@ export class HomeComponent implements OnInit {
                 chartContext,
                 config
               ): string {
-                console.log('evenement' + event);
-                console.log('chartContext' + chartContext);
-                console.log('config' + config.dataPointIndex);
-                console.log(config.w.config.series[config.dataPointIndex]);
-                console.log(config.w.config.labels[config.dataPointIndex]);
                 var country = config.w.config.labels[config.dataPointIndex];
                 console.log(country);
                 router.navigate(['/detail'], { queryParams: { country } });
@@ -90,8 +82,6 @@ export class HomeComponent implements OnInit {
       })
     );
 
-    //////observable of nbre of JOs
-
     this.olympicsNumberOfJOs$ = this.olympicService.getOlympics().pipe(
       filter((olympics) => olympics),
 
@@ -104,9 +94,6 @@ export class HomeComponent implements OnInit {
         return indexParticipation;
       })
     );
-
-    /////observale pour nbre total des countries
-
     this.olympicsNumberOfCountries$ = this.olympicService.getOlympics().pipe(
       filter((olympics) => olympics),
 
@@ -117,8 +104,6 @@ export class HomeComponent implements OnInit {
         return indexCountries;
       })
     );
-
-    ///////////////////////
   }
   ngOnInit(): void {
     this.olympics$ = this.olympicService.getOlympics();
