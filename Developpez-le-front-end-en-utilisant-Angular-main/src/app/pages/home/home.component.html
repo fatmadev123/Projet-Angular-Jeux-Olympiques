@@ -1,10 +1,15 @@
 <h2>Olympic games app</h2>
 <hr />
 <label class="label1">Medals per Country</label><br />
-<label class="label2">Number of JOs : {{ olympicsNumberOfJOs$ | async }}</label>
-<label class="label3"
-  >Numbers of countries : {{ olympicsNumberOfCountries$ | async }}</label
->
+<div class="lbelcommun">
+  <label class="label2"
+    >Number of JOs : {{ olympicsNumberOfJOs$ | async }}</label
+  >
+  <label class="label3"
+    >Numbers of countries : {{ olympicsNumberOfCountries$ | async }}</label
+  >
+</div>
+
 <div id="chart">
   <apx-chart
     *ngIf="chartOptions | async as chart"

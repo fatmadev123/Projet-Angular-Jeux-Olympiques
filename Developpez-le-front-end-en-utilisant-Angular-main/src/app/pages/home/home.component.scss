@@ -11,38 +11,34 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 200px;
-  height: 80px;
+  width: 210px;
+  height: 50px;
   border: 2px solid rgb(35, 140, 158);
   border-radius: 5px;
   font: size 50px;
+  flex-wrap: nowrap;
 }
-
-.label2 {
-  background-color: rgb(244, 246, 247);
-  color: rgb(103, 94, 94);
-  margin-left: 500px;
-  margin-right: auto;
-  display: inline-block;
-  align-items: center;
-  justify-content: center;
-  width: 200px;
-  height: 80px;
-  border: 2px solid rgb(12, 96, 117);
-  border-radius: 5px;
-  font: size 50px;
-}
+.label2,
 .label3 {
   background-color: rgb(244, 246, 247);
   color: rgb(103, 94, 94);
-  margin-left: 70px;
+  margin-left: 50px;
   margin-right: auto;
   display: inline-block;
   align-items: center;
   justify-content: center;
-  width: 200px;
-  height: 80px;
+  width: 300px;
+  height: 50px;
   border: 2px solid rgb(12, 96, 117);
   border-radius: 5px;
   font: size 50px;
+  flex-wrap: nowrap;
+  text-align: center;
+}
+.lbelcommun {
+  margin: 0 auto;
+  width: 60%;
+  position: center;
+  align-items: center;
+  justify-content: center;
 }
